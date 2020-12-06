@@ -41,4 +41,10 @@ public class ReservationController {
     return "redirect:/reservations";
   }
 
+  @RequestMapping(value = "/reservations/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+  public String delete(Integer id){
+    reservationService.delete(id);
+    return "redirect:/reservations";
+  }
+
 }

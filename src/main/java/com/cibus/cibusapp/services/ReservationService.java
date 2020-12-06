@@ -28,4 +28,8 @@ public class ReservationService {
   public Optional<Reservation> findById(int id){
     return reservationRepository.findById(id);
   }
+
+  public void delete(Integer id) {
+    reservationRepository.deleteById(id);
+  }
 }
