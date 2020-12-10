@@ -33,22 +33,21 @@ import com.cibus.cibusapp.services.StateService;
 public class EmployeeController {
 	
 	@Autowired private EmployeeService employeeService;
-	@Autowired private StateService stateService;
+//	@Autowired private StateService stateService;
 	
-	@Autowired private JobTitleService jobTitleService;
+//	@Autowired private JobTitleService jobTitleService;
 	
-	@Autowired private EmployeeTypeService employeeTypeService;
-	@Autowired private CountryService countryService;
+//	@Autowired private EmployeeTypeService employeeTypeService;
+//	@Autowired private CountryService countryService;
 	
 	//Get All Employees
 	@GetMapping("employees")
 	public String findAll(Model model){
-		model.addAttribute("countries", countryService.findAll());
-		model.addAttribute("states", stateService.findAll());
+//		model.addAttribute("countries", countryService.findAll());
+//		model.addAttribute("states", stateService.findAll());
 		model.addAttribute("employees", employeeService.findAll());
-		model.addAttribute("jobTitles", jobTitleService.findAll());
-		model.addAttribute("employeeTypes", employeeTypeService.findAll());
-		
+//		model.addAttribute("jobTitles", jobTitleService.findAll());
+//		model.addAttribute("employeeTypes", employeeTypeService.findAll());
 		return "employee";
 	}	
 	
