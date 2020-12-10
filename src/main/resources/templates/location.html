@@ -9,7 +9,7 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Clients</title>
+    <title>Locations</title>
 
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -17,11 +17,11 @@
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <!--external css-->
     <!-- font icon -->
-    <link href="css/elegant-icons-style.css" rel="stylesheet"/>
-    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
     <!-- Custom styles -->
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/style-responsive.css" rel="stylesheet"/>
+    <link href="css/style-responsive.css" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
     <!--[if lt IE 9]>
@@ -205,190 +205,30 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa fa-bars"></i> Clients List</h3>
+                    <h3 class="page-header"><i class="fa fa fa-bars"></i> Locations</h3>
                     <ol class="breadcrumb">
                         <li><i class="fa fa-home"></i><a th:href="@{/index}">Home</a></li>
-                        <li><i class="fa fa-bars"></i>Clients</li>
-                        <li><i class="fa fa-square-o"></i>Clients List</li>
+                        <li><i class="fa fa-square-o"></i>Locations</li>
                     </ol>
                 </div>
             </div>
             <!-- page start-->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" >New Client</button>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Phone</th>
-                    <th>Mobile</th>
-                    <th>Website</th>
-                    <th>Email</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="client:${clients}">
-                    <td th:text="${client.id}"></td>
-                    <td th:text="${client.name}"></td>
-                    <td th:text="${client.address}"></td>
-                    <td th:text="${client.city}"></td>
-                    <td th:text="${client.phone}"></td>
-                    <td th:text="${client.mobile}"></td>
-                    <td th:text="${client.website}"></td>
-                    <td th:text="${client.email}"></td>
-                    <td>
-                        <div class=""btn-group>
-                            <a th:href="@{/clients/findById/(id=${client.id})}" class="btn btn-primary" id="editButton">Edit</a>
-                            <a th:href="@{/clients/delete/(id=${client.id})}" class="btn btn-danger" id="deleteButton">Delete</a>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            Locations content goes here
             <!-- page end-->
         </section>
     </section>
     <!--main content end-->
 </section>
 <!-- container section end -->
-
-// Add client
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">New client</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form th:action="@{/clients/addNew}" method="post">
-                    <div class="form-group">
-                        <label for="name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="address" class="col-form-label">Address:</label>
-                        <input type="text" class="form-control" id="address" name="address">
-                    </div>
-                    <div class="form-group">
-                        <label for="city" class="col-form-label">City:</label>
-                        <input type="text" class="form-control" id="city" name="city">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" class="col-form-label">Phone:</label>
-                        <input type="text" class="form-control" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="mobile" class="col-form-label">Mobile:</label>
-                        <input type="text" class="form-control" id="mobile" name="mobile">
-                    </div>
-                    <div class="form-group">
-                        <label for="website" class="col-form-label">Website:</label>
-                        <input type="text" class="form-control" id="website" name="website">
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="col-form-label">Email:</label>
-                        <input type="text" class="form-control" id="email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-//Edit Client
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Client</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form th:action="@{/clients/update}" method="put">
-                    <div class="form-group">
-                        <label for="name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="nameEdit" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="address" class="col-form-label">Address:</label>
-                        <input type="text" class="form-control" id="addressEdit" name="address">
-                    </div>
-                    <div class="form-group">
-                        <label for="city" class="col-form-label">City:</label>
-                        <input type="text" class="form-control" id="cityEdit" name="city">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" class="col-form-label">Phone:</label>
-                        <input type="text" class="form-control" id="phoneEdit" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="mobile" class="col-form-label">Mobile:</label>
-                        <input type="text" class="form-control" id="mobileEdit" name="mobile">
-                    </div>
-                    <div class="form-group">
-                        <label for="website" class="col-form-label">Website:</label>
-                        <input type="text" class="form-control" id="websiteEdit" name="website">
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="col-form-label">Email:</label>
-                        <input type="text" class="form-control" id="emailEdit" name="email">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Confirm Delete</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure?</p>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" id="confirmDeleteButton" href="">Yes, delete</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- javascripts -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <!-- nice scroll -->
 <script src="js/jquery.scrollTo.min.js"></script>
 <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-<!--custom script for all page-->
+<!--custome script for all page-->
 <script src="js/scripts.js"></script>
-<script src="js/editClient.js"></script>
+
 
 </body>
 
