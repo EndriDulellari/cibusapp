@@ -255,7 +255,7 @@
 </section>
 <!-- container section end -->
 
-// Add client
+<!-- Update Clients-->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -306,8 +306,6 @@
         </div>
     </div>
 </div>
-
-//Edit Client
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -319,6 +317,10 @@
             </div>
             <div class="modal-body">
                 <form th:action="@{/clients/update}" method="put">
+                    <div class="form-group">
+                        <label for="idEdit" class="col-form-label">ID:</label>
+                        <input type="text" class="form-control" id="idEdit" name="id" readonly>
+                    </div>
                     <div class="form-group">
                         <label for="name" class="col-form-label">Name:</label>
                         <input type="text" class="form-control" id="nameEdit" name="name">
@@ -358,8 +360,6 @@
         </div>
     </div>
 </div>
-
-
 <div class="modal" id="deleteModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

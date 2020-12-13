@@ -5,12 +5,14 @@ $('document').ready(function(){
 
     var href = $(this).attr('href');
 
-    $.get(href, function(reservation, status){
-        $('#idEdit').val(reservation.id)
-        $('#customerEdit').val(reservation.customer)
-        $('#dateEdit').val(reservation.dateReservation)
-        $('#tableEdit').val(reservation.tableReservation)
-        $('#timeEdit').val(reservation.timeReservation)
+    $.get(href, function(contact, status){
+        $('#idEdit').val(contact.id)
+        $('#firstnameEdit').val(contact.firstname)
+        $('#lastnameEdit').val(contact.lastname)
+        $('#phoneEdit').val(contact.phone)
+        $('#emailEdit').val(contact.email)
+        $('#mobileEdit').val(contact.mobile)
+        $('#remarksEdit').val(contact.remarks)
     });
         $('#editModal').modal();
     });

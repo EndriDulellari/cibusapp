@@ -5,13 +5,15 @@ $('document').ready(function(){
 
     var href = $(this).attr('href');
 
-    $.get(href, function(reservation, status){
-        $('#idEdit').val(reservation.id)
-        $('#customerEdit').val(reservation.customer)
-        $('#customerEdit').val(reservation.customer)
-        $('#dateEdit').val(reservation.dateReservation)
-        $('#tableEdit').val(reservation.tableReservation)
-        $('#timeEdit').val(reservation.timeReservation)
+    $.get(href, function(client, status){
+        $('#idEdit').val(client.id)
+        $('#nameEdit').val(client.name)
+        $('#addressEdit').val(client.address)
+        $('#cityEdit').val(client.city)
+        $('#phoneEdit').val(client.phone)
+        $('#mobileEdit').val(client.mobile)
+        $('#websiteEdit').val(client.website)
+        $('#emailEdit').val(client.email)
     });
         $('#editModal').modal();
     });
