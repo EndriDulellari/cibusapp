@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
-public class Person {
+public class Person extends Auditable<String>{
 		
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
