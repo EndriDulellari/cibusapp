@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import com.cibus.cibusapp.models.Client;
 import com.cibus.cibusapp.services.ClientService;
 import com.cibus.cibusapp.services.CountryService;
-import com.cibus.cibusapp.services.StateService;
 
 @Controller
 public class ClientController {
-	
-	@Autowired private StateService stateService;
+
 	@Autowired private CountryService countryService;	
 	@Autowired private ClientService clientService;
 	
@@ -23,7 +21,6 @@ public class ClientController {
 	@GetMapping("/clients")
 	public String findAll(Model model){		
 		model.addAttribute("countries", countryService.findAll());
-		model.addAttribute("states", stateService.findAll());
 		model.addAttribute("clients", clientService.findAll());
 		return "client";
 	}	

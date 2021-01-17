@@ -1,12 +1,9 @@
 package com.cibus.cibusapp.models;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -30,7 +27,4 @@ public class Country {
 	private String description;
 	private String nationality;
 	private String continent;
-	
-	@OneToMany(mappedBy="country")
-	private List<State> states;
 }

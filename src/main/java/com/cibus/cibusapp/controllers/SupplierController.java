@@ -13,13 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cibus.cibusapp.models.Supplier;
 import com.cibus.cibusapp.services.CountryService;
-import com.cibus.cibusapp.services.StateService;
 import com.cibus.cibusapp.services.SupplierService;
 
 @Controller
 public class SupplierController {
-	
-	@Autowired private StateService stateService;
+
 	@Autowired private CountryService countryService;	
 	@Autowired private SupplierService supplierService;
 	
@@ -27,7 +25,6 @@ public class SupplierController {
 	@GetMapping("suppliers")
 	public String findAll(Model model){		
 		model.addAttribute("countries", countryService.findAll());
-		model.addAttribute("states", stateService.findAll());
 		model.addAttribute("suppliers", supplierService.findAll());
 		return "supplier";
 	}	

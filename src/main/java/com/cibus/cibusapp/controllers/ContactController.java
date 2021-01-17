@@ -14,14 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.cibus.cibusapp.models.Contact;
 import com.cibus.cibusapp.services.ContactService;
 import com.cibus.cibusapp.services.CountryService;
-import com.cibus.cibusapp.services.EmployeeTypeService;
-import com.cibus.cibusapp.services.JobTitleService;
-import com.cibus.cibusapp.services.StateService;
 
 @Controller
 public class ContactController {
-	
-	@Autowired private StateService stateService;
+
 	@Autowired private CountryService countryService;	
 	@Autowired private ContactService contactService;
 	
@@ -29,7 +25,6 @@ public class ContactController {
 	@GetMapping("/contacts")
 	public String findAll(Model model){		
 		model.addAttribute("countries", countryService.findAll());
-		model.addAttribute("states", stateService.findAll());
 		model.addAttribute("contacts", contactService.findAll());
 		return "contact";
 	}	

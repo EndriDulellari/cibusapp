@@ -38,11 +38,6 @@ public class Person extends Auditable<String>{
 	private Country country;
 	private Integer countryid;
 	
-	@ManyToOne
-	@JoinColumn(name="stateid", insertable=false, updatable=false)
-	private State state;
-	private Integer stateid;
-	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateOfBirth;
 	private String city;

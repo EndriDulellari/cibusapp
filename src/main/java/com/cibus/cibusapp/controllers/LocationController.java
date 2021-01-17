@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.cibus.cibusapp.models.Location;
 import com.cibus.cibusapp.services.CountryService;
 import com.cibus.cibusapp.services.LocationService;
-import com.cibus.cibusapp.services.StateService;
 
 @Controller
 @RequestMapping("/locations")
@@ -25,13 +23,11 @@ public class LocationController {
 	
 	@Autowired	private LocationService locationService;
 	@Autowired	private CountryService countryService;
-	@Autowired	private StateService stateService;
 	
 	@GetMapping("")
 	public String findAll(Model model){
 		model.addAttribute("locations", locationService.findAll());
 		model.addAttribute("countries", countryService.findAll());
-		model.addAttribute("states", stateService.findAll());
 
 		return "location";
 	}

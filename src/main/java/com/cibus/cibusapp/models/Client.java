@@ -31,10 +31,5 @@ public class Client extends Person {
 	private Country country;
 	private Integer countryid;
 	
-	@ManyToOne
-	@JoinColumn(name="stateid", insertable=false, updatable=false)
-	private State state;	
-	private Integer stateid;
-	
 	private String details;
 }

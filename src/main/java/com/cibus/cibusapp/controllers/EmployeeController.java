@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,11 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cibus.cibusapp.models.Employee;
-import com.cibus.cibusapp.services.CountryService;
 import com.cibus.cibusapp.services.EmployeeService;
-import com.cibus.cibusapp.services.EmployeeTypeService;
-import com.cibus.cibusapp.services.JobTitleService;
-import com.cibus.cibusapp.services.StateService;
 
 @Controller
 public class EmployeeController {

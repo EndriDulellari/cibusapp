@@ -14,13 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.cibus.cibusapp.models.Invoice;
 import com.cibus.cibusapp.services.ClientService;
 import com.cibus.cibusapp.services.InvoiceService;
-import com.cibus.cibusapp.services.InvoiceStatusService;
 
 @Controller
 public class InvoiceController {
 	
 	@Autowired private InvoiceService invoiceService;
-	@Autowired private InvoiceStatusService invoiceStatusService;
 	@Autowired private ClientService clientService;
 	
 	//Get All Invoices
@@ -28,7 +26,6 @@ public class InvoiceController {
 	public String findAll(Model model){		
 		model.addAttribute("invoices", invoiceService.findAll());
 		model.addAttribute("clients", clientService.findAll());
-		model.addAttribute("invoiceStatuses", invoiceStatusService.findAll());
 		return "invoice";
 	}	
 	
