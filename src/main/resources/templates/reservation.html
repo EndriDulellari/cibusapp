@@ -222,7 +222,7 @@
                     <th>Customer</th>
                     <th>Date</th>
                     <th>Time</th>
-                    <th>Table</th>
+                    <th>NumberOfPersons</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -235,8 +235,9 @@
                     <td th:text="${reservation.tableReservation}"></td>
                     <td>
                         <div class=""btn-group>
-                            <a th:href="@{/reservations/findById/(id=${reservation.id})}" class="btn btn-primary" id="editButton">Edit</a>
-                            <a th:href="@{/reservations/delete/(id=${reservation.id})}" class="btn btn-danger" id="deleteButton">Delete</a>
+                            <a th:href="@{/reservations/findById/(id=${reservation.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>
+                            <a th:href="@{/reservations/findById/(id=${reservation.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                            <a th:href="@{/reservations/delete/(id=${reservation.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -262,19 +263,19 @@
                 <form th:action="@{/reservations/addNew}" method="post">
                     <div class="form-group">
                         <label for="customer" class="col-form-label">Customer:</label>
-                        <input type="text" class="form-control" id="customer" name="customer">
+                        <input type="text" class="form-control" id="customer" name="customer" maxlength="32" required>
                     </div>
                     <div class="form-group">
                         <label for="date" class="col-form-label">Date:</label>
-                        <input type="text" class="form-control" id="date" name="dateReservation">
+                        <input type="date" class="form-control" id="date" name="dateReservation" required>
                     </div>
                     <div class="form-group">
-                        <label for="table" class="col-form-label">Table:</label>
-                        <input type="text" class="form-control" id="table" name="tableReservation">
+                        <label for="table" class="col-form-label">NumberOfPersons:</label>
+                        <input type="number" class="form-control" id="table" name="tableReservation" min="1" max="50" required>
                     </div>
                     <div class="form-group">
                         <label for="time" class="col-form-label">Time:</label>
-                        <input type="text" class="form-control" id="time" name="timeReservation">
+                        <input type="time" class="form-control" id="time" name="timeReservation" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -305,19 +306,19 @@
                     </div>
                     <div class="form-group">
                         <label for="customer" class="col-form-label">Customer:</label>
-                        <input type="text" class="form-control" id="customerEdit" name="customer">
+                        <input type="text" class="form-control" id="customerEdit" name="customer" maxlength="32" required>
                     </div>
                     <div class="form-group">
                         <label for="date" class="col-form-label">Date:</label>
-                        <input type="text" class="form-control" id="dateEdit" name="dateReservation">
+                        <input type="date" class="form-control" id="dateEdit" name="dateReservation" required>
                     </div>
                     <div class="form-group">
-                        <label for="table" class="col-form-label">Table:</label>
-                        <input type="text" class="form-control" id="tableEdit" name="tableReservation">
+                        <label for="table" class="col-form-label">NumberOfPersons:</label>
+                        <input type="number" class="form-control" id="tableEdit" name="tableReservation" min="1" max="50" required>
                     </div>
                     <div class="form-group">
                         <label for="time" class="col-form-label">Time:</label>
-                        <input type="text" class="form-control" id="timeEdit" name="timeReservation">
+                        <input type="time" class="form-control" id="timeEdit" name="timeReservation" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -331,6 +332,61 @@
     </div>
 </div>
 
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailModalLabel">Reservation Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/reservations/update}" method="put">
+                    <div class="form-group">
+                        <label for="customer" class="col-form-label">ID:</label>
+                        <input type="text" class="form-control" id="idDetail" name="id" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer" class="col-form-label">Customer:</label>
+                        <input type="text" class="form-control" id="customerDetail" name="customer" maxlength="32" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="date" class="col-form-label">Date:</label>
+                        <input type="date" class="form-control" id="dateDetail" name="dateReservation" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="table" class="col-form-label">NumberOfPersons:</label>
+                        <input type="number" class="form-control" id="tableDetail" name="tableReservation" min="1" max="50" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="time" class="col-form-label">Time:</label>
+                        <input type="time" class="form-control" id="timeDetail" name="timeReservation" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="time" class="col-form-label">CreatedBy:</label>
+                        <input type="text" class="form-control" id="createdByDetail" name="createdByReservation" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="time" class="col-form-label">CreatedDate:</label>
+                        <input type="text" class="form-control" id="createdDateDetail" name="createdDateReservation" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="time" class="col-form-label">UpdatedBy:</label>
+                        <input type="text" class="form-control" id="updatedByDetail" name="updatedByReservation" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="time" class="col-form-label">UpdatedDate:</label>
+                        <input type="text" class="form-control" id="updatedDateDetail" name="updatedDateReservation" readonly>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="modal" id="deleteModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

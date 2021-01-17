@@ -230,9 +230,11 @@
             <div class="profile-widget profile-widget-info">
               <div class="panel-body">
                 <div class="col-lg-2 col-sm-2">
-                  <h4>Jenifer Smith</h4>
+                  <h4 class="username" th:text="${#authentication.getPrincipal().getUsername()}">Guest</h4>
                   <div class="follow-ava">
-                    <img src="img/profile-widget-avatar.jpg" alt="">
+                      <img alt=""
+                           th:src="@{'img/photos/'+${#authentication.getPrincipal().getUsername()}+'.jpg'}"
+                           height="38" width="38">
                   </div>
                   <h6>Administrator</h6>
                 </div>
@@ -241,9 +243,15 @@
                   <p>@jenifersmith</p>
                   <p><i class="fa fa-twitter">jenifertweet</i></p>
                   <h6>
-                                    <span><i class="icon_clock_alt"></i>11:05 AM</span>
-                                    <span><i class="icon_calendar"></i>25.10.13</span>
-                                    <span><i class="icon_pin_alt"></i>NY</span>
+                                    <span><i class="icon_clock_alt"></i>
+                                        <span th:text="${#dates.format(#dates.createNow(), 'hh:mm a')}"></span>
+                                    </span>
+                                    <span><i class="icon_calendar"></i>
+                                        <span th:text="${#dates.format(#dates.createNow(), 'dd MMM yyyy')}"></span>
+                                    </span>
+                                    <span><i class="icon_pin_alt"></i>
+                                        NY
+                                    </span>
                                 </h6>
                 </div>
                 <div class="col-lg-2 col-sm-6 follow-info weather-category">

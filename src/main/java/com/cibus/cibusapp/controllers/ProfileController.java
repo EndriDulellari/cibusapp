@@ -1,35 +1,17 @@
-package com.cibus.cibusapp;
-
+package com.cibus.cibusapp.controllers;
 import com.cibus.cibusapp.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.security.Principal;
 
 @Controller
-public class ApplicationController {
+public class ProfileController {
 
   @Autowired
   private EmployeeService employeeService;
 
-  @GetMapping("/index")
-  public String goHome(){
-    return "index";
-  }
-
-  @GetMapping("/login")
-  public String login(){
-    return "login";
-  }
-
-  @GetMapping("/logout")
-  public String logout(){
-    return "login";
-  }
-
-  @GetMapping(value="/profile")
   public String profile(Model model, Principal principal){
     String userName = principal.getName();
     model.addAttribute("employee",employeeService.findByUsername(userName));

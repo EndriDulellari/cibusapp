@@ -36,7 +36,7 @@ public class EmployeeService {
 	}
 	
 	//Get Employee by username
-	public Employee findByUsername(String un) {
-		return employeeRepository.findByUsername(un);
+	public Employee findByUsername(String userName) {
+		return employeeRepository.findByUsername(userName);
 	}
 }
