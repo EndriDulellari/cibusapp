@@ -12,6 +12,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=false)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class JobTitle extends CommonObject {
+public class JobTitle extends CommonColumns {
 
 }

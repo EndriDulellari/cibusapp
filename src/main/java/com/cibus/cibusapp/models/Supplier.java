@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Supplier {
+public class Supplier extends Auditable<String>{
 		
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

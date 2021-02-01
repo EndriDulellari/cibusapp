@@ -10,21 +10,21 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @MappedSuperclass
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class CommonObject extends Auditable<String>{
+public class CommonColumns extends Auditable<String>{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String description;
+	private String name;
 	private String details;
 	
-	public CommonObject() {
+	public CommonColumns() {
 		
 	}
 	
-	public CommonObject(Integer id, String description, String details) {
+	public CommonColumns(Integer id, String name, String details) {
 		this.id = id;
-		this.description = description;
+		this.name = name;
 		this.details = details;
 	}
 	
@@ -36,12 +36,12 @@ public class CommonObject extends Auditable<String>{
 		this.id = id;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getName() {
+		return name;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDetails() {
@@ -51,11 +51,4 @@ public class CommonObject extends Auditable<String>{
 	public void setDetails(String details) {
 		this.details = details;
 	}
-
-	@Override
-	public String toString() {
-		return "CommonObject [id=" + id + ", description=" + description + ", details=" + details + "]";
-	}
-	
-	
 }

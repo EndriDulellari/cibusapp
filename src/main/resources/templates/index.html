@@ -155,42 +155,52 @@
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_group"></i>
+                        <span>Employees</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" th:href="@{/employees}">Employee List</a></li>
+                        <li><a class="" th:href="@{/jobTitles}">Job Titles</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_group"></i>
                         <span>Clients</span>
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
                         <li><a class="" th:href="@{/reservations}">Reservations</a></li>
-                        <li><a class="" th:href="@{/clients}">Clients List</a></li>
+                        <li><a class="" th:href="@{/clients}">Client List</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a class="" th:href="@{/contacts}">
-                        <i class="icon_contacts"></i>
-                        <span>Contacts</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="" th:href="@{/employees}">
-                        <i class="icon_profile"></i>
-                        <span>Employees</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="" th:href="@{/locations}">
-                        <i class="icon_map"></i>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_group"></i>
                         <span>Locations</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
+                    <ul class="sub">
+                        <li><a class="" th:href="@{/locations}">Location List</a></li>
+                        <li><a class="" th:href="@{/cities}">Cities</a></li>
+                        <li><a class="" th:href="@{/countries}">Countries</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_group"></i>
+                        <span>Suppliers</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" th:href="@{/suppliers}">Supplier List</a></li>
+                        <li><a class="" th:href="@{/invoices}">Invoices</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a class="" th:href="@{/menu}">
                         <i class="icon_like"></i>
                         <span>Menu</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="" th:href="@{/invoices}">
-                        <i class="icon_wallet"></i>
-                        <span>Invoices</span>
                     </a>
                 </li>
             </ul>
